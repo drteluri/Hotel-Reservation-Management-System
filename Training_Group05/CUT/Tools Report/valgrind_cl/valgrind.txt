@@ -1,0 +1,14 @@
+==2001120== Memcheck, a memory error detector
+==2001120== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2001120== Using Valgrind-3.16.1 and LibVEX; rerun with -h for copyright info
+==2001120== Command: bin/hotel_client
+==2001120== 
+==2001120== 
+==2001120== HEAP SUMMARY:
+==2001120==     in use at exit: 0 bytes in 0 blocks
+==2001120==   total heap usage: 34 allocs, 34 frees, 76,288 bytes allocated
+==2001120== 
+==2001120== All heap blocks were freed -- no leaks are possible
+==2001120== 
+==2001120== For lists of detected and suppressed errors, rerun with: -s
+==2001120== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

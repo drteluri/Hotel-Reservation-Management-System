@@ -1,0 +1,35 @@
+SRCDIR = src
+INCLUDEDIR = include
+OBJDIR = obj
+BINDIR = bin
+VALGRIND = tools/valgrind
+
+INCLUDEFLAGS = -I${INCLUDEDIR}
+CPPFLAGS = -ansi -c -g -Wall -std=gnu++11 -DDEBUG ${INCLUDEFLAGS}
+
+hotel_server: common.o hotel_tcpserver.o hotel_main.o hotel_user.o hotel_room.o
+	g++ -o ${BINDIR}/hotel_server ${OBJDIR}/common.o ${OBJDIR}/hotel_tcpserver.o ${OBJDIR}/hotel_main.o $(OBJDIR)/hotel_user.o $(OBJDIR)/hotel_room.o -lpthread
+
+hotel_main.o: ${SRCDIR}/hotel_main.cpp
+	g++ -o ${OBJDIR}/hotel_main.o ${CPPFLAGS} ${SRCDIR}/hotel_main.cpp
+
+hotel_user.o: ${SRCDIR}/hotel_user.cpp
+	g++ -o ${OBJDIR}/hotel_user.o ${CPPFLAGS} ${SRCDIR}/hotel_user.cpp
+
+hotel_room.o: ${SRCDIR}/hotel_room.cpp
+	g++ -o ${OBJDIR}/hotel_room.o ${CPPFLAGS} ${SRCDIR}/hotel_room.cpp
+
+hotel_tcpserver.o: ${SRCDIR}/hotel_tcpserver.cpp
+	g++ -o ${OBJDIR}/hotel_tcpserver.o ${CPPFLAGS} ${SRCDIR}/hotel_tcpserver.cpp
+
+common.o: ${SRCDIR}/common.cpp
+	g++ -o ${OBJDIR}/common.o ${CPPFLAGS} ${SRCDIR}/common.cpp
+
+valgrind: hotel_server
+	valgrind --leak-check=full --show-reachable=yes ${BINDIR}/hotel_server 2> ${VALGRIND}/valgrind.txt
+
+clean:
+	echo "cleaning up .o and .exe's"
+	rm ${BINDIR}/hotel_server ${OBJDIR}/*.o
+
+
