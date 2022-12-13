@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='ISO-8859-1' standalone='yes' ?>
+<TestRun>
+  <FailedTests></FailedTests>
+  <SuccessfulTests>
+    <Test id="1">
+      <Name>Testhotel::testinit</Name>
+    </Test>
+    <Test id="2">
+      <Name>Testhotel::testreserveRoom</Name>
+    </Test>
+    <Test id="3">
+      <Name>Testhotel::testunreserveRoom</Name>
+    </Test>
+    <Test id="4">
+      <Name>Testhotel::testAvailableRoom</Name>
+    </Test>
+    <Test id="5">
+      <Name>Testhotel::testAvailableRoomWithPrice</Name>
+    </Test>
+  </SuccessfulTests>
+  <Statistics>
+    <Tests>5</Tests>
+    <FailuresTotal>0</FailuresTotal>
+    <Errors>0</Errors>
+    <Failures>0</Failures>
+  </Statistics>
+</TestRun>
